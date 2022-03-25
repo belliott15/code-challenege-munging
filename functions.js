@@ -130,8 +130,8 @@ OUTPUT:
 */
 
 export function findByName(name, arr) {
-    const find = arr.filter((pet => pet.name === name));
-    return find;
+    const find = arr.filter((pet => { return pet.name === name;}));
+    return find[0];
 }
 
 /*
@@ -221,7 +221,6 @@ Output:
 
 export function makeModelsStringWithReduce(arr) {
     const modelString = arr
-        .filter((car => car.model))
         .map((car => car.model));
     return modelString;
 }
