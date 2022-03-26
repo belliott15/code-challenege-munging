@@ -221,7 +221,9 @@ Output:
 
 export function makeModelsStringWithReduce(arr) {
     const modelString = arr
-        .map((car => car.model));
+        .reduce((string, item) => {
+            return string + item.model;
+        }, '');
     return modelString;
 }
 
@@ -232,7 +234,10 @@ Output: 14
  */
 
 export function getSumOfAges(arr) {
-    return 0;
+    const ages = arr.reduce((sum, car) => {
+        return sum += car.age;
+    }, 0);
+    return ages;
 }
 
 /*
