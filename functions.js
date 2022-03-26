@@ -251,7 +251,20 @@ Output:
  */
 
 export function makeCountObject(arr) {
-    return {};
+    let vehicleObj = {};
+    const count = arr
+        .map((car) => car.type);
+    console.log(count);
+    for(let i = 0; i < count.length; i++) {
+        console.log('before:', vehicleObj);
+        if(vehicleObj[count[i]]){
+            vehicleObj[count[i]]++;
+        } else {
+            vehicleObj[count[i]] = 1;
+        }
+        console.log('after:', vehicleObj);
+    }
+    return vehicleObj;
 }
 
 
@@ -264,5 +277,9 @@ Output:
 
 
 export function makeKeysString(arr) {
-    return '';
+    const keys = Object.keys(arr[0]);
+    keys.reduce((string, item) => {
+        return string += item;
+    });
+    return keys;
 }
